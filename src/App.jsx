@@ -40,7 +40,7 @@ const updateBoard = (index) => {
 
   //guardar partida
   window.localStorage.setItem('board', JSON.stringify(newBoard))
-  window.localStorage.setItem('turn', turn)
+  window.localStorage.setItem('turn', newTurn)
   // se revisa si hay un ganador
   const newWinner = checkWinnerFrom(newBoard)
   if(newWinner) { 
