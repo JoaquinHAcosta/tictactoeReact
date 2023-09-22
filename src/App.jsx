@@ -52,6 +52,12 @@ const checkWinner = (boardToCheck) => {
   //si no hay ganador
   return null
 }
+
+const checkEndGame = (newBoard) => {
+  // revisamos si hay empate
+  // si no hay mas espacios vacios en el tablero
+  return newBoard.every((square) => square !== null)
+}
   
 const updateBoard = (index) => {
   //si el spot esta ocupado no se actualiza
@@ -72,8 +78,9 @@ const updateBoard = (index) => {
   const newWinner = checkWinner(newBoard)
   if(newWinner) {
     setWinner(newWinner)
-  } // TODO: check is game is over
-  // alert(`El ganador es ${newWinner}`)
+  } else if(checkEndGame(newBoard)) {
+    setWinner(false) // empate
+  }
 }
 
 const resetGame = () => {
